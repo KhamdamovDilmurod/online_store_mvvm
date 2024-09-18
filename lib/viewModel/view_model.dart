@@ -14,16 +14,15 @@ class MainViewModel extends BaseViewModel{
     return _errorStream.stream;
   }
 
+  var progressData = false;
+
   StreamController<List<ProductModel>> _productsStream = StreamController();
 
   Stream<List<ProductModel>> get productData {
     return _productsStream.stream;
   }
 
-  var progressData = false;
-
   List<ProductModel> products = [];
-
 
   void getProducts() async {
     progressData = true;
@@ -36,4 +35,29 @@ class MainViewModel extends BaseViewModel{
     progressData = false;
     notifyListeners();
   }
+
+  //////////////
+
+  StreamController<ProductModel> _productByIdStream = StreamController();
+
+  Stream<ProductModel> get productByIdData {
+    return _productByIdStream.stream;
+  }
+
+  ProductModel? productById = null;
+
+void getProductById(int id) async{
+  progressData = true;
+  notifyListeners();
+  final data = await api.getProductById(id, _errorStream);
+  if(data !=null){
+    productById = data;
+    _productByIdStream.sink.add(productById!);
+  }
+  progressData = false;
+  notifyListeners();
+}
+
+
+
 }

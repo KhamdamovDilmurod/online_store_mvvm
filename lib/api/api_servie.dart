@@ -98,4 +98,25 @@ class ApiService {
       return null;
     }
   }
+
+  Future<ProductModel?> getProductById( int id,
+      StreamController<String> errorStream) async {
+    try {
+      final response = await dio.get("products/$id");
+
+
+      if (response.statusCode == 200) {
+        return ProductModel.fromJson(response.data);
+      } else {
+        errorStream.add('Unexpected status code: ${response.statusCode}');
+        return null;
+      }
+    } on DioException catch (e) {
+      errorStream.add(handleError(e));
+      return null;
+    } catch (e) {
+      errorStream.add('Unexpected error: $e');
+      return null;
+    }
+  }
 }
