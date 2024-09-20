@@ -36,6 +36,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
           );
         },
+
         onViewModelReady: (viewModel) {
           viewModel.getProductById(widget.id);
         },
