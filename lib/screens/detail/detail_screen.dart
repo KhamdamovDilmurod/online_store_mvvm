@@ -33,6 +33,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     : Image.network(viewModel.productById!.image),
               ],
             ),
+
           );
         },
         onViewModelReady: (viewModel) {
