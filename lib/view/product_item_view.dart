@@ -28,6 +28,7 @@ class _ProductItemViewState extends State<ProductItemView> {
               width: 100,
               height: 200,
             ),
+
             Text(
               widget.product.title,
               style: TextStyle(
