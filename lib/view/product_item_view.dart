@@ -22,6 +22,7 @@ class _ProductItemViewState extends State<ProductItemView> {
           border: Border.all(color: Colors.blueAccent, width: 1),
         ),
         child: Column(
+
           children: [
             Image.network(
               widget.product.image,
