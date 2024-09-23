@@ -5,6 +5,7 @@ class ProductModel {
   final String description;
   final String image;
   final Rating rating;
+  bool isLiked = false;
 
   ProductModel({
     required this.id,
