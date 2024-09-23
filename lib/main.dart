@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_store_mvvm/screens/main_screen.dart';
 import 'package:online_store_mvvm/screens/products_screen.dart';
 
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  ProductsScreen(),
+      home:  MainScreen(),
     );
   }
 }

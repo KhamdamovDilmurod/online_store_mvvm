@@ -21,7 +21,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          'About the productById',
+          'About the product',
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
