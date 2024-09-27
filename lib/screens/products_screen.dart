@@ -2,14 +2,13 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:online_store_mvvm/provider/providers.dart';
 import 'package:online_store_mvvm/view/product_item_view.dart';
 import 'package:online_store_mvvm/view/shimmer_product_view.dart';
-import 'package:shimmer/shimmer.dart';
+import 'package:provider/provider.dart';
 import 'package:stacked/stacked.dart';
 
 import '../viewModel/view_model.dart';
-import 'detail/product_detail.dart';
 
 class ProductsScreen extends StatefulWidget {
   const ProductsScreen({Key? key}) : super(key: key);
@@ -22,9 +21,20 @@ class _ProductsScreenState extends State<ProductsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xF6E0FFFF),
+      backgroundColor: Color(0xFFEFD0FD),
       appBar: AppBar(
         title: Text("online store"),
+        actions: [
+          Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 12.0),
+            child: IconButton(
+              icon: Badge.count(count: context.watch<CartProvider>().getCartItems().length, child: Icon(Icons.shopping_basket),),
+              onPressed: (){
+
+              },
+            ),
+          )
+        ],
       ),
       body: ViewModelBuilder<MainViewModel>.reactive(
         viewModelBuilder: () {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_store_mvvm/model/product_model.dart';
+import 'package:online_store_mvvm/provider/providers.dart';
+import 'package:provider/provider.dart';
 
 class ProductItemView extends StatefulWidget {
   final ProductModel product;
@@ -63,6 +65,7 @@ class _ProductItemViewState extends State<ProductItemView> {
                   GestureDetector(
                     onTap: () {
                       // Handle add to cart
+                      context.read<CartProvider>().add2Cart(widget.product);
                     },
                     child: Container(
                       padding: EdgeInsets.all(2),

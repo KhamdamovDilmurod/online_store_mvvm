@@ -19,9 +19,8 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
   void onTapped(int index) {
-    _currentIndex = index;
     setState(() {
-
+      _currentIndex = index;
     });
   }
 
@@ -41,6 +40,7 @@ class _MainScreenState extends State<MainScreen> {
         onTap: onTapped,
         selectedItemColor: Colors.purple,
         unselectedItemColor: Colors.grey,
+        currentIndex: _currentIndex,
       ),
     );
   }
