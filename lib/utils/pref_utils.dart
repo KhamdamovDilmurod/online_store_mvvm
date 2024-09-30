@@ -68,7 +68,7 @@ class PrefUtils {
   }
 
 // Getting cart count based on product ID
-  static int getCartCount(String productId) {
+  static int getCartCount(int productId) {
     final items = PrefUtils.getCartList().where((element) => element.product.id == productId).toList();
     return items.isNotEmpty ? items.first.cart_count : 0;
   }

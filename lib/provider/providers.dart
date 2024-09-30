@@ -9,9 +9,8 @@ class CartProvider with ChangeNotifier{
 
   List<CartModel> get cartProducts  => _cartProducts;
 
-  void add2Cart( ProductModel item) {
-    final CartModel cartItem = CartModel(product: item, cart_count: 1, price: item.price);
-    PrefUtils.addToCart(cartItem);
+  void add2Cart( CartModel item) {
+    PrefUtils.addToCart(item);
     notifyListeners();
   }
 
@@ -19,5 +18,11 @@ class CartProvider with ChangeNotifier{
     _cartProducts = PrefUtils.getCartList();
     notifyListeners();
     return _cartProducts;
+  }
+
+  int getCartCount(int productId){
+    int cartCount = PrefUtils.getCartCount(productId);
+    notifyListeners();
+    return cartCount;
   }
 }
