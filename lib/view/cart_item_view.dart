@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../model/cart_model.dart';
+import '../provider/providers.dart';
 
 class CartItemView extends StatefulWidget {
   final CartModel item;
@@ -78,7 +80,12 @@ class _CartItemViewState extends State<CartItemView> {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.delete, size: 32,), onPressed: () {  },
+            icon: Icon(Icons.delete, size: 32,), onPressed: () {
+            context.read<CartProvider>().add2Cart(CartModel(
+                product: widget.item.product,
+                price: widget.item.price,
+                cart_count: 0));
+          },
           ),
         ],
       ),
